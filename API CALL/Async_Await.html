@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Promises and Async & Await </title>
+    <script>
+
+        function getCheese(cheese) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const cheese = "🧀";
+                    resolve(cheese);
+                }, 1000);
+            });
+        }
+
+        function makeDough(dough) { 
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const dough = "🥟";
+                    resolve(dough);
+                }, 1500);
+            });
+        }
+
+        function bakePizza(pizza) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const pizza = "🍕";
+                    resolve(pizza);
+                }, 2000);
+            });
+        }
+
+       async function orderPizza() {
+            try {
+                const cheese = await getCheese();
+                console.log("here is the cheese.",cheese);
+
+                const dough = await makeDough(cheese);
+                console.log("here is the dough.",dough);
+
+                const pizza = await bakePizza(dough);
+                console.log("here is the pizza.",pizza);
+            }
+
+            catch (error) {
+                console.log("Error Occured", error);
+            }
+        }
+      orderPizza();
+
+    </script>
+</head>
+
+<body>
+    <h1>Promises and Async & Await</h1>
+</body>
+
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
